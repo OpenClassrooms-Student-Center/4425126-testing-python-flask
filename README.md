@@ -15,7 +15,7 @@ du répertoire.
 
 ### 1. Télécharger le projet sur votre répertoire local : 
 ```
-https://github.com/OpenClassrooms-Student-Center/4425126-testing-python-flask.git 
+git clone https://github.com/OpenClassrooms-Student-Center/4425126-testing-python-flask.git 
 cd 4425126-testing-python-flask
 ```
 ### 2. Mettre en place un environnement virtuel :
