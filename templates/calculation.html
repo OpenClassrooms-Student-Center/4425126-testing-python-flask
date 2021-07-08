@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+{%set title="Calculation Page"%}
+
+{%block body_main%}
+<div class="container my-5">
+	<div class="row">
+		<div class="col-12 col-sm-10 col-md-9 col-lg-7 mx-auto border shadow-lg rounded-lg p-3">
+			<form action="{{url_for('index')}}" method="POST">
+				<h3 class="text-center">Conversion Page</h3>
+				<hr/>
+				{%if error%}
+				<div class="alert alert-danger">{{error}}</div>
+				{%endif%}
+				<label for="base" class="font-weight-bold">Base Unit</label>
+				<select class="form-control mb-3" name="base" id="base" required>
+					<option value="10" {%if base and base=='10'%}selected{%endif%}>Decimal</option>
+					<option value="2" {%if base and base=='2'%}selected{%endif%}>Binary</option>
+					<option value="16" {%if base and base=='16'%}selected{%endif%}>Hexadecimal</option>
+				</select>
+
+				<label for="input" class="font-weight-bold">Enter Input Value</label>
+				<input type="text" class="form-control mb-3" id="input" name="input" value="{{input}}" required/>
+
+				<input type="submit" class="btn btn-primary" value="Calculate" />
+			</form>
+		</div>
+	</div>
+	{%if dec%}
+	<div class="row mt-5">
+		<div class="col-12 col-sm-10 col-md-9 col-lg-7 mx-auto border shadow-lg rounded-lg p-3">
+			<h3 class="text-center">Result</h3>
+			<hr/>
+			<p><b>Base:</b> {{base}}</p>
+			<p><b>Input Value:</b> {{input}}</p>
+			<hr/>
+			<p><b>Decimal:</b> {{dec}}</p>
+			<p><b>Binary:</b> {{bin}}</p>
+			<p><b>Hexadecimal:</b> {{hex}}</p>
+		</div>
+	</div>
+	{%endif%}
+</div>
+{%endblock%}
